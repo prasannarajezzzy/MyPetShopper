@@ -7,62 +7,91 @@ const HomeScreen = () => {
   const [products, setProducts] = useState([
     {
       _id: "1",
-      name: "iPhone 14 Pro Max",
+      name: "Best Dog Food",
       description: "Latest model with advanced features",
-      price: 1000,
+      price: 10,
       ratings: 0,
       images: [
         {
           public_id: "ByteProducts/ql23ouxprps3ygmzhdun",
-          url: "http://res.cloudinary.com/dvgltz0vl/image/upload/v1714024974/ByteProducts/ql23ouxprps3ygmzhdun.jpg",
+          url: "https://image.chewy.com/is/image/catalog/86251_MAIN._AC_SL600_V1649133132_.jpg",
           _id: "6629f20f8a9ac8d92e1ae187",
         },
       ],
     },
     {
       _id: "2",
-      name: "iPhone 14 Pro Max",
+      name: "Dog food Pedigree",
       description: "Latest model with advanced features",
-      price: 1000,
+      price: 12,
       ratings: 0,
       images: [
         {
           public_id: "ByteProducts/ql23ouxprps3ygmzhdun",
-          url: "http://res.cloudinary.com/dvgltz0vl/image/upload/v1714024974/ByteProducts/ql23ouxprps3ygmzhdun.jpg",
+          url: "https://image.chewy.com/is/image/catalog/86251_MAIN._AC_SL600_V1649133132_.jpg",
           _id: "6629f20f8a9ac8d92e1ae187",
         },
       ],
     },
     {
       _id: "3",
-      name: "iPhone 14 Pro Max",
+      name: "Cat Food",
       description: "Latest model with advanced features",
-      price: 1000,
+      price: 50,
       ratings: 0,
       images: [
         {
           public_id: "ByteProducts/ql23ouxprps3ygmzhdun",
-          url: "http://res.cloudinary.com/dvgltz0vl/image/upload/v1714024974/ByteProducts/ql23ouxprps3ygmzhdun.jpg",
+          url: "https://image.chewy.com/is/image/catalog/86251_MAIN._AC_SL600_V1649133132_.jpg",
           _id: "6629f20f8a9ac8d92e1ae187",
         },
       ],
     },
     {
       _id: "4",
-      name: "iPhone 14 Pro Max",
+      name: "Cat toy",
       description: "Latest model with advanced features",
-      price: 1000,
+      price: 55,
       ratings: 0,
       images: [
         {
           public_id: "ByteProducts/ql23ouxprps3ygmzhdun",
-          url: "http://res.cloudinary.com/dvgltz0vl/image/upload/v1714024974/ByteProducts/ql23ouxprps3ygmzhdun.jpg",
+          url: "https://image.chewy.com/is/image/catalog/86251_MAIN._AC_SL600_V1649133132_.jpg",
           _id: "6629f20f8a9ac8d92e1ae187",
         },
       ],
     },
     // Add more products here as needed
   ]);
+
+  const updateProductDetails = async (products) => {
+    console.log("Login credentials", email, password);
+    try {
+      const response = await fetch("", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const json = await response.json();
+      if (json.products) {
+        products = json.products;
+        let startingPrice = 50;
+
+        products.forEach((product, index) => {
+          product.name = index % 2 === 0 ? "Dog Food" : "Cat Food";
+
+          product.price = startingPrice;
+          startingPrice += 10;
+        });
+
+        return products;
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
+  };
 
   return (
     <FlatList

@@ -23,46 +23,43 @@ function App() {
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Signup" component={SignupScreen} />
           {/* <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} /> */}
-          <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          {/* <Stack.Screen
-            name="UserProfileScreen"
-            component={UserProfileScreen}
-          /> */}
-          <Stack.Screen name="ShoppingCart" component={ShoppingCart} />
+          {/* <Stack.Screen name="HomeScreen" component={HomeScreen} /> */}
+
+          {/* <Stack.Screen name="ShoppingCart" component={ShoppingCart} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     </>
   );
-  // return (
-  //   <NavigationContainer>
-  //     <Tab.Navigator
-  //       screenOptions={({ route }) => ({
-  //         tabBarIcon: ({ focused, color, size }) => {
-  //           let iconName;
+  //// turn (
+  //// <NavigationContainer>
+  ////   <Tab.Navigator
+  ////     screenOptions={({ route }) => ({
+  ////       tabBarIcon: ({ focused, color, size }) => {
+  ////         let iconName;
 
-  //           if (route.name === "Home") {
-  //             iconName = "home";
-  //           } else if (route.name === "Cart") {
-  //             iconName = "shopping-cart";
-  //           } else if (route.name === "UserProfile") {
-  //             iconName = "user";
-  //           }
+  ////         if (route.name === "Home") {
+  ////           iconName = "home";
+  ////         } else if (route.name === "Cart") {
+  ////           iconName = "shopping-cart";
+  ////         } else if (route.name === "UserProfile") {
+  ////           iconName = "user";
+  ////         }
 
-  //           // You can return any component that you like here!
-  //           return <Icon name={iconName} size={size} color={color} />;
-  //         },
-  //       })}
-  //       tabBarOptions={{
-  //         activeTintColor: "tomato",
-  //         inactiveTintColor: "gray",
-  //       }}
-  //     >
-  //       <Tab.Screen name="Home" component={HomeScreen} />
-  //       <Tab.Screen name="Cart" component={ShoppingCart} />
-  //       <Tab.Screen name="UserProfile" component={UserProfileScreen} />
-  //     </Tab.Navigator>
-  //   </NavigationContainer>
-  // );
+  ////         // You can return any component that you like here!
+  ////         return <Icon name={iconName} size={size} color={color} />;
+  ////       },
+  ////     })}
+  ////     tabBarOptions={{
+  ////       activeTintColor: "tomato",
+  ////       inactiveTintColor: "gray",
+  ////     }}
+  ////   >
+  ////     <Tab.Screen name="Home" component={HomeScreen} />
+  ////     <Tab.Screen name="Cart" component={ShoppingCart} />
+  ////     <Tab.Screen name="UserProfile" component={UserProfileScreen} />
+  ////   </Tab.Navigator>
+  //// </NavigationContainer>
+  ////
 }
 
 export default App;

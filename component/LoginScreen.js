@@ -53,7 +53,7 @@ function LoginScreen({ navigation }) {
     },
   });
 
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const getToken = async () => {
     try {
@@ -70,23 +70,24 @@ function LoginScreen({ navigation }) {
     }
   };
   const handleLogin = async () => {
-    console.log("Login credentials", username, password);
+    console.log("Login credentials", email, password);
     try {
-      // const response = await fetch('https://your-backend.com/api/login', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify({ username, password }),
-      // });
-      // const json = await response.json();
-      const response = { ok: true };
-      const json = { ok: true, token: "test-token-string" }; // Ensure this matches the actual API response structure
+      const response = await fetch("http://10.0.0.177:8000/api/v1/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const json = await response.json();
+
       if (response.ok) {
-        await storeToken(json.token); // Correctly pass only the token string
+        await storeToken(json.token);
         let val = await getToken();
-        console.log("datass", val); // Output the token to confirm it's stored and retrieved correctly
+        console.log("datass", val);
         console.log("Truee");
+        navigation.navigate("HomeScreen"); // Redirect to Home component
       } else {
         console.error("Error:", json.message);
       }
@@ -99,8 +100,8 @@ function LoginScreen({ navigation }) {
     <View style={styles.container}>
       <TextInput
         placeholder="Username"
-        value={username}
-        onChangeText={setUsername}
+        value={email}
+        onChangeText={setEmail}
         style={styles.input}
       />
       <TextInput

@@ -83,9 +83,6 @@ const HomeScreen = () => {
           product.name = index % 2 === 0 ? "Dog Food" : "Cat Food";
 
           product.price = startingPrice;
-          product.images[0].url =
-            "https://image.chewy.com/is/image/catalog/86251_MAIN._AC_SL600_V1649133132_.jpg";
-
           startingPrice += 10;
         });
 
